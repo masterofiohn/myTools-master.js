@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: teal;
+            font-family: "Microsoft Yahei";
+        }
+        
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin: 50px;
+        }
+        
+        .project-nav-wrap {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 1px dotted #ddd;
+        }
+        
+        .project-nav-wrap .main-nav {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+            background-color: green;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .project-nav-wrap nav {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform: scale(0);
+            transition: all 0.5s ease-out;
+            opacity: 0;
+        }
+        
+        .project-nav-wrap.active nav {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .project-nav-wrap nav a {
+            padding: 10px;
+            width: 40px;
+            height: 15px;
+            line-height: 15px;
+            border-radius: 10px;
+            text-align: center;
+            background-color: rebeccapurple;
+            color: #fff;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>径向动画菜单效果演示</h1>
+
+    <div class="project-nav-wrap" data-show="false">
+        <nav>
+            <a>菜单1</a>
+            <a>菜单2</a>
+            <a>菜单3</a>
+            <a>菜单4</a>
+            <a>菜单5</a>
+            <a>菜单6</a>
+            <a>菜单7</a>
+            <a>菜单8</a>
+        </nav>
+        <a class=" main-nav "> 点击我</a>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js "></script>
+<script>
+    $(function() {
+
+        $(".project-nav-wrap").on("click", ".main-nav", function(e) {
+            e.preventDefault();
+
+            var me = $(this),
+                navWrap = me.closest(".project-nav-wrap"),
+                navs = navWrap.find("nav a"),
+                show = navWrap.attr("data-show");
+
+            navWrap.toggleClass("active");
+            if (navWrap.hasClass("active") && show == "false") {
+                var startAngle = 0,
+                    endAngle = 360;
+
+                var total = navs.length,
+                    gap = (endAngle - startAngle) / total;
+
+                var width = navWrap.width(),
+                    radius = width / 2;
+
+                var radian = Math.PI / 180;
+                $.each(navs, function(index, item) {
+                    var myAngle = (startAngle + gap * index) * radian;
+
+                    var myX = radius + radius * Math.cos(myAngle),
+                        myY = radius + radius * Math.sin(myAngle);
+                    $(this).css({
+                        left: myX + 'px',
+                        top: myY + 'px'
+                    });
+                });
+            }
+            navWrap.attr("data-show", "true")
+        });
+
+    });
+</script>
+
+</html>
