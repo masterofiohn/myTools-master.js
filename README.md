@@ -86,6 +86,72 @@ window.myTools = new MyTools();
  myTools.getLocaArg("id");  //return 1234567;
 ```
 
+---> formatDate  转换日期时间 自定义时间格式 ：format
+ ```js
+ //示例
+ //比如：
+ //"yyyy-MM-dd HH:mm:ss";"yyyy-MM-dd-HH-mm-ss"
+ //"yyyy-MM-ddTHH:mm:ss" ....
+ var now = new Date();
+ myTools.formatDate(now, 'yyyy-MM-dd-HH-mm-ss');//2017-08-17-15-15-16
+```
 
+---> trim  去除字符串两边的空格 参数为字符串 本方法参考了jQuery 的$.trim()方法
+ ```js
+ //示例
+ var str = "john      ";
+ myTools.trim(str);//return john
+```
+
+---> arrayRemoveSame  数组去重 传入的参数是一个数组 返回的结果是一个没有重复元素的数组
+ ```js
+ //示例
+ var arr = [1, 1, 1, 2, 2];
+ myTools.arrayRemoveSame(arr);//return [1,2]
+```
+
+---> error  抛出错误 传进对应的错误信息
+ ```js
+ //示例
+ var str = "arguments is a array";
+ myTools.error(str);
+```
+
+---> isFunction  判断传入的对象是否为function
+ ```js
+ //示例
+ function john(){}
+ myTools.isFunction(john);//return true
+```
+
+
+---> isWindow  判断传入的对象是否为window对象
+ ```js
+ //示例
+ myTools.isFunction(window);//return true
+```
+
+---> isNumberic 判断传入的对象是否为数字类型
+ ```js
+ //示例
+ myTools.isNumberic(100);//return true
+```
+
+---> isEmptyObject 判断是否为一个空的对象
+ ```js
+ //示例
+ var obj = {};
+ myTools.isEmptyObject(obj);//return true
+```
+
+---> getOnlyNumber 生成全球唯一码 
+ ```js
+ //示例
+ // 参数  "upper" & "lower"
+ //什么都不传，输出的和upper一样
+ myTools.getOnlyNumber();
+ 
+ 
+```
 
 
