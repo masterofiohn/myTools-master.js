@@ -32,4 +32,19 @@ window.myTools = new MyTools();
 
 
 
-- myTools目前具体的方法：
+## myTools目前具体的方法：
+
+---> log 打印输出方法 用于在浏览器的开发者模式中，进行调试JavaScript
+ ```js
+ //示例
+ var str = "john";
+ myTools.log(str);  // return str;
+```
+
+---> objExtend 深度合并对象的属性 传入的参数无限
+ ```js
+ //示例
+ var obj1 = { name:"john",sex:"male" ,age:"27"};
+ var obj2 = { marry:"yes"};
+ myTools.objExtend（obj1,obj2,.....）;  //返回的object {name:"john",sex:"male" ,age:"27",marry:"yes"}
+```
