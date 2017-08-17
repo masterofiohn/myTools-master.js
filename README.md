@@ -48,3 +48,36 @@ window.myTools = new MyTools();
  var obj2 = { marry:"yes"};
  myTools.objExtend（obj1,obj2,.....）;  //返回的object {name:"john",sex:"male" ,age:"27",marry:"yes"}
 ```
+
+---> getMax  获取数字数组里面的最大数 传入的参数只允许数字数组
+ ```js
+ //示例
+ var arr = [1,2,3,4,100,20,30,40,50];
+ myTools.getMax(arr);  //return 100;
+```
+
+
+---> getMmin  获取数字数组里面的最小数 传入的参数只允许数字数组
+ ```js
+ //示例
+ var arr = [1,2,3,4,100,20,30,40,50];
+ myTools.getMax(arr);  //return 1;
+```
+
+---> getSum  获取数字数组里面元素之和 传入的参数只允许数字数组
+ ```js
+ //示例
+ var arr = [1,2,3,4,100,20,30,40,50];
+ myTools.getSum(arr);  //return 250;
+```
+
+---> getMult  获取数字数组里面元素之积 传入的参数只允许数字数组
+ ```js
+ //示例
+ var arr = [1,2,3,4,100,20,30,40,50];
+ myTools.getMult(arr);  //return 2880000000;
+```
+
+
+
+
