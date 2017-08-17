@@ -4,6 +4,13 @@ myTools.js是一个经常使用的工具库，为了在开发过程中，很好�
 
 
 ## myTools架构
- --->  MyTools() 
+ ---> 构造函数 MyTools() 
+ 
+ ```js
+function MyTools() {
+    this.name = "myTools";
+    this.version = "1.0";
+}
+```
 
 - myTools
