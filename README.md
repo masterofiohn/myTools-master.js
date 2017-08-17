@@ -46,7 +46,7 @@ window.myTools = new MyTools();
  //示例
  var obj1 = { name:"john",sex:"male" ,age:"27"};
  var obj2 = { marry:"yes"};
- myTools.objExtend（obj1,obj2,.....）;  //返回的object {name:"john",sex:"male" ,age:"27",marry:"yes"}
+ myTools.objExtend(obj1,obj2,.....);  //返回的object {name:"john",sex:"male" ,age:"27",marry:"yes"}
 ```
 
 ---> getMax  获取数字数组里面的最大数 传入的参数只允许数字数组
@@ -76,6 +76,14 @@ window.myTools = new MyTools();
  //示例
  var arr = [1,2,3,4,100,20,30,40,50];
  myTools.getMult(arr);  //return 2880000000;
+```
+
+---> getLocaArg  获取文件路径里面的参数 只需要传进对应的名称
+ ```js
+ //示例
+ // file:///E:/myProjects/myTools/test.html?id=1234567&name=john
+ //如上面的例子，只需要传进"id"  或者 "name"
+ myTools.getLocaArg("id");  //return 1234567;
 ```
 
 
