@@ -6,135 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        table th,
-        table td {
-            border: 1px solid #ddd;
-            text-align: center;
-            vertical-align: middle;
-            padding: 10px;
-        }
-        
-        table th {
-            background-color: teal;
-            color: #fff;
-        }
-    </style>
 </head>
 
 <body>
-    <button id="default">还原</button>
-    <button id="upNum">升序排列(按照序号)</button>
-    <button id="downNum">降序排列（按照序号）</button>
-    <table>
-        <thead>
-            <tr>
-                <th width="300px">序号</th>
-                <th>标题1</th>
-                <th>标题2</th>
-                <th>标题3</th>
-            </tr>
-        </thead>
-        <tbody id="tableContent">
-
-        </tbody>
-    </table>
+    
 </body>
-<!-- <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script> -->
-<script src="assert/js/jquery-3.2.1.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script> 
 <script src="assert/js/myTools.js"></script>
 <script>
-    $(function() {
-        var tableObject = {
-            init: function() {
-                this.events();
-            },
-
-            getJSON: [{
-                num: 1,
-                name1: "name1",
-                name2: "name2",
-                name3: "name3"
-            }, {
-                num: 101,
-                name1: "name101-1",
-                name2: "name101-2",
-                name3: "name101-3"
-            }, {
-                num: 2,
-                name1: "name2-1",
-                name2: "name2-2",
-                name3: "name2-3"
-            }, {
-                num: 3,
-                name1: "name3-1",
-                name2: "name3-2",
-                name3: "name3-3"
-            }],
-
-            tableTmp: function(data, id) {
-                var html = '',
-                    i = 0,
-                    list;
-
-                for (; i < data.length; i++) {
-                    list = data[i];
-                    html += '<tr>' +
-                        '<td> ' + list.num + ' </td>' +
-                        '<td> ' + list.name1 + ' </td>' +
-                        '<td> ' + list.name2 + ' </td>' +
-                        '<td> ' + list.name3 + ' </td>' +
-                        "</tr>";
-                }
-
-                $("#" + id).html(html);
-            },
-
-            events: function() {
-                var getJSON = this.getJSON,
-                    tableTmp = this.tableTmp;
-
-                //初始加载
-                tableTmp(getJSON, "tableContent");
-
-                //升序
-                $("#upNum").on("click", function() {
-                    var data = JSON.stringify(getJSON);
-                    data = JSON.parse(data).sort(function(a, b) {
-                        return a.num - b.num;
-                    });
-                    tableTmp(data, "tableContent");
-                });
-
-                //降序
-                $("#downNum").on("click", function() {
-                    var data = JSON.stringify(getJSON);
-                    data = JSON.parse(data).sort(function(a, b) {
-                        return b.num - a.num;
-                    });
-                    tableTmp(data, "tableContent");
-                });
-
-                //还原
-                $("#default").on("click", function() {
-                    var data = getJSON;
-                    tableTmp(data, "tableContent");
-                });
-            }
-        };
-
-        tableObject.init();
-    });
+   //在这里进行代码测试  具体文档 请参考 https://github.com/JohnJiang900526/myTools-master.js
 </script>
 
 </html>
