@@ -351,3 +351,51 @@ myTools.extend("getOnlyNumber", function(str) {
     return arr.join("");
 });
 
+//17.添加一条cookie
+//s20是代表20秒
+//h是指小时，如12小时则是：h12
+//d是天数，30天则：d30
+myTools.extend("getSec", function(str) {
+    var str1 = str.substring(1, str.length) * 1;
+    var str2 = str.substring(0, 1);
+    if (str2 == "s") {
+        return str1 * 1000;
+    } else if (str2 == "h") {
+        return str1 * 60 * 60 * 1000;
+    } else if (str2 == "d") {
+        return str1 * 24 * 60 * 60 * 1000;
+    }
+});
+
+//18.添加一条cookie
+myTools.extend("setCookie", function(name, value, time) {
+    var strsec = this.getSec(time);
+    var timeCookie = new Date();
+    timeCookie.setTime(timeCookie.getTime() + strsec * 1);
+    document.cookie = name + "=" + encodeURI(value) + ";expires=" + timeCookie.toGMTString();
+});
+
+//19.获取一条cookie
+myTools.extend("getCookie", function(name) {
+    var arr = name + "=",
+        pattern = new RegExp("(^| )" + name + "=([^;]*)(;|$)"),
+        thisCookie = document.cookie.match(pattern);
+
+    if (thisCookie[0].indexOf(arr) > -1) {
+        return decodeURI(thisCookie[2]);
+    } else {
+        return null;
+    }
+});
+
+//20.删除一条cookie
+myTools.extend("deleteCookie", function(name) {
+    var timeCookie = new Date(),
+        nameCookie = this.getCookie(name);
+
+    timeCookie.setTime(timeCookie.getTime() - 1);
+    if (nameCookie != null) {
+        document.cookie = name + "=" + nameCookie + ";expires=" + timeCookie.toGMTString();
+    }
+});
+
