@@ -150,8 +150,27 @@ window.myTools = new MyTools();
  // 参数  "upper" & "lower"
  //什么都不传，输出的和upper一样
  myTools.getOnlyNumber();
- 
- 
+```
+
+---> setCookie 添加一条cookie
+ ```js
+ //参数有 name value time 三个
+ //s20是代表20秒
+ //h是指小时，如12小时则是：h12
+ //d是天数，30天则：d30
+ myTools.setCookie("name","john","s20");
+```
+
+---> getCookie 获取一条cookie
+ ```js
+ //参数有 name 一个
+ myTools.setCookie("name");
+```
+
+---> deleteCookie 删除一条cookie
+ ```js
+ //参数有 name 一个
+ myTools.deleteCookie("name");
 ```
 
 
